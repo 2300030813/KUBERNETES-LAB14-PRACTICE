@@ -26,7 +26,7 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./BACKEND/BOOKINGAPIAPI-SPRINGBOOT
+          context: ./BACKEND/BOOKINGAPI-SPRINGBOOT
           file: ./BACKEND/BOOKINGAPI-SPRINGBOOT/backend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/kubernetes-lab12-backend:latest
@@ -34,7 +34,7 @@ jobs:
       - name: Build and push frontend image
         uses: docker/build-push-action@v5
         with:
-          context: ./FRONTEND/BOOKINGAPIAPI-REACT
+          context: ./FRONTEND/BOOKINGAPI-REACT
           file: ./FRONTEND/BOOKINGAPI-REACT/frontend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/kubernetes-lab12-frontend:latest

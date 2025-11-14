@@ -1,6 +1,13 @@
 namespace: fullstack-app
 
 # =====================
+# Ingress Configuration
+# =====================
+ingress:
+  enabled: true
+  host: localhost   # or your Minikube IP if not using localhost
+
+# =====================
 # MySQL Configuration
 # =====================
 mysql:
@@ -9,7 +16,7 @@ mysql:
   database: tabledb11
   service:
     port: 3306
-    type: ClusterIP   # Only accessible inside the cluster
+    type: ClusterIP
 
 # =====================
 # Backend Configuration
@@ -52,4 +59,7 @@ frontend:
     minReplicas: 2
     maxReplicas: 5
     targetCPUUtilizationPercentage: 50
-  apiUrl: "http://localhost:30031"  # Backend NodePort
+
+  # Point frontend to backend service
+  apiUrl: "/api"
+  
